@@ -1,0 +1,210 @@
+\documentclass{article}
+
+% adapted "grant" version from latex code:
+% https://github.com/OchoaLab/grantModelCanvas
+% and the "freelance" version (not latex):
+% https://medium.com/@dominic_11011/the-freelance-canvas-eabd6e19b35f
+
+\usepackage[a3paper, landscape,margin=0in]{geometry}
+%\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\pagenumbering{gobble} % supress page numbers
+\usepackage{hyperref}
+\usepackage{datetime2} % YYYY-MM-DD format!
+% Sans-serif fonts
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv} 
+
+\usepackage{tikz}
+
+\title{\vspace{-1em}The Freelancer Canvas}
+\author{Sulthan A. Karimov --- \href{mailto:sulthankarimov@gmail.com}{\nolinkurl{sulthankarimov@gmail.com} } --- \url{https://github.com/sakarimov}}
+\date{
+  \textbf{\color{black!50}Version:} \today
+  ~\textbf{\color{black!50}---}
+  \textbf{\color{black!50}Due date:} ????-??-??
+}
+
+
+\begin{document}
+\maketitle
+
+\vspace{-1em}
+\centering
+\def\layersep{0.145*\textwidth}
+\def\layersepsmall{0.09666666666666666667*\textwidth}
+\def\layerwidth{0.95*\textwidth}
+
+\makebox[\textwidth][c]{
+	\begin{tikzpicture}[
+			% Define block parameters (mostly shape)
+			bloc/.style={
+					rectangle, rounded corners,
+					draw=black!30, very thick, inner sep=0,
+				},
+			bloc1/.style={
+					bloc,
+					text width = \layerwidth/4*0.95,
+					minimum width = \layerwidth/4,
+					minimum height= 4*\layersep
+				},
+			bloc2/.style={
+					bloc,
+					text width = \layerwidth/4*0.95,
+					minimum width=\layerwidth/4,
+					minimum height=2*\layersep
+				},
+			bloc3/.style={
+					bloc,
+					text width=\layerwidth/4*0.95,
+					minimum width=\layerwidth/4,
+					minimum height=1*\layersep
+				},
+			bloc4/.style={
+					bloc,
+					text width=\layerwidth/4*0.95,
+					minimum width=\layerwidth/4,
+					minimum height=\layersepsmall
+				},
+			bloc5/.style={
+					bloc,
+					text width=\layerwidth/2*0.95,
+					minimum width=\layerwidth/2,
+					minimum height=2*\layersep
+				},
+			title/.style={
+					anchor=north west,
+					color=black!50,
+					font=\bfseries
+				},
+		]
+
+		%%%%%%%%%%%%%%%%%%%%%%%%
+		%%% DRAW THE CANVAS
+		%%%%%%%%%%%%%%%%%%%%%%%%
+
+		% first the block, then the title
+
+		% STRUCTURE
+		\node[bloc4] (b1) at (0*\layerwidth/8,8.5*\layersepsmall) {
+			\textbf{self employed or incorporated as business (usually Limited Liability Company)}
+
+			also what name are you going to trade under. think about:
+			\begin{itemize}
+				\item How is going to be perceived by prospective clients.
+				\item What do other freelancers in you area use.
+				\item Are there any trademark/copyright implications.
+			\end{itemize}
+		};
+		\node[title] at (b1.north west) {\underline{STRUCTURE}};
+
+		% BUSINESS MANAGEMENT 
+		\node[bloc3] (b2) at (2*\layerwidth/8,5.5*\layersep) {
+			\begin{itemize}
+				\item Are you going to do your own finances? Are you going to hire an accountant?
+				\item Do you need a loan to start freelancing?
+				\item How are you going to manage invoicing / charging clients?
+				\item Do you have the right bank accounts setup?
+			\end{itemize}
+		};
+		\node[title] at (b2.north west) {\underline{BUSINESS MANAGEMENT}};
+
+		% WORKING STYLE
+		\node[bloc4] (b3) at (0*\layerwidth/8,7.5*\layersepsmall) {
+			Where are you going to work from? Are you going to work from home or work in a co-working space?
+			Are you working in person with your clients or remotely?
+			Are you working full-time or part-time? Is this a side hustle?
+			Do you plan on collaborating with other freelancers?
+		};
+		\node[title] at (b3.north west) {\underline{WORKING STYLE}};
+
+		% OBLIGATIONS
+		\node[bloc3] (b4) at (2*\layerwidth/8,4.5*\layersep) {
+			What obligations do you have?
+			Do you know what your actual tax obligations are? If not how will you find out what you need to know?
+			Do you have any specific obligations relating to your profession? For instance, if you a freelance driver for Uber you will definitely need a driver’s licence. But do you need any other accreditations / licenses.
+			Do you need any insurance? Public Liability, Professional Indemnity insurance…?
+		};
+		\node[title] at (b4.north west) {\underline{OBLIGATIONS}};
+
+		% KIT
+		\node[bloc4] (b5) at (0*\layerwidth/8,6.5*\layersepsmall) {
+			In order to perform your profession do you need any specific kit. Be it hardware, safety gear, transport or software.
+			Do you need it all from day one or can you stagger purchases?
+			Will your prospective clients pay for any of it?
+		};
+		\node[title] at (b5.north west) {\underline{KIT}};
+
+		% GOALS & VALUES
+		\node[bloc2] (b6) at (0*\layerwidth/8,4.5*\layersepsmall) {
+			Is freelancing a stepping stone to build your own larger company?
+			If so what is the timeline for this?
+			In order for your freelancing operation to be a success what core values do you have.
+			Think about your vision, mission statement, goals and values.
+		};
+		\node[title] at (b6.north west) {\underline{GOALS \& VALUES}};
+
+		% PORTFOLIO
+		\node[bloc3] (b7) at (2*\layerwidth/8,3.5*\layersep) {
+			How will you show prospective clients your abilities?
+			Will you have a CV or a portfolio?
+			Will you have your own website? Or host your CV/Portfolio elsewhere.
+			Whether you have a CV, Portfolio or website you need to decide what to show. Do you have permission to show previous work.
+			Do you have any testimonials?
+		};
+		\node[title] at (b7.north west) {\underline{PORTFOLIO}};
+
+		% LIFT PITCH
+		\node[bloc3] (b8) at (2*\layerwidth/8,2.5*\layersep) {
+			Imagine you are in a lift. The lift takes 20 seconds. The person in the lift asks what you do. How do you describe yourself in 20 seconds.
+		};
+		\node[title] at (b8.north west) {\underline{LIFT PITCH}};
+
+		% PROVIDE WHAT?
+		%\node[bloc2] (b9) at (4*\layerwidth/8,5*\layersep) {};
+		%\node[title] at (b9.north west) {\underline{PROVIDE WHAT?}};
+
+		% SERVICES & RATES
+		\node[bloc5] (b10) at (5*\layerwidth/8,5*\layersep) {
+			This is the back bone to your freelance operation.
+			What services are you going offer? Are these services unique or are they standard services for your profession?
+			How are you going to sell these services? Are they going to be charged as a fixed price offering, or times \& materials on an hourly rate?
+			What is your hourly rate? Do you have different hourly rates — if so why?
+			What do others charge?
+		};
+		\node[title] at (b10.north west) {\underline{SERVICES \& RATES}};
+
+		% POTENTIAL CLIENTS
+		\node[bloc2] (b11) at (4*\layerwidth/8,3*\layersep) {
+			Think about who are the next / first 5 potential clients that you could contact to get work.
+			Who is the individual that you need to contact? How are you going to contact them?
+			What is your approach? Go for a coffee, online presentation…
+		};
+		\node[title] at (b11.north west) {\underline{POTENTIAL CLIENTS}};
+
+		% SOCIAL MEDIA & NETWORKING
+		\node[bloc3] (b12) at (6*\layerwidth/8,3.5*\layersep) {
+			Do you have your social media setup? Make sure it is for your freelance business and not as you as an individual
+			How are you going to network for new potential clients? Are there any meet-ups or conferences that will help with marketing?
+			Are there any slack channels you want to join?
+		};
+		\node[title] at (b12.north west) {\underline{SOCIAL MEDIA \& NETWORKING}};
+
+		% JOB PLATFORMS
+		\node[bloc3] (b13) at (6*\layerwidth/8,2.5*\layersep) {
+			How will you find jobs?
+			What freelancer platforms are you going to signup to?
+			\begin{itemize}
+				\item Global — i.e. Toptal, Guru, Freelancer, Upwork, Fiver
+				\item Local — any specific to your country / region
+				\item Specialised — are there any platforms for freelancers specific to your profession
+			\end{itemize}
+		};
+		\node[title] at (b13.north west) {\underline{JOB PLATFORMS}};
+
+	\end{tikzpicture}
+}
+
+Content based heavily on \url{https://medium.com/@dominic_11011/the-freelance-canvas-eabd6e19b35f}
+
+\end{document}
